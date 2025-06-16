@@ -35,24 +35,20 @@
 }
 
 .container {
-    height: 100%;
-    width: 100%;
-    max-width: 1440px;
-    border: solid 2px red;
-    margin: 0 auto;
-}
-
-.btn-text {
-  font-family: "Big Shoulders", sans-serif;
-  font-style: normal;
-  font-size: var(--btn-text-lg);
-  font-weight: 800;
-  line-height: 100%; /* 20px */
-  letter-spacing: 3.636px;
-  text-transform: uppercase;
+  height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .icon {
   width: 20px;
   height: 20px;
+}
+
+.arrow {
+  width: 8px;
+  height: 24px;
+  stroke-width: 2px;
+  stroke: var(--colors-white);
 }

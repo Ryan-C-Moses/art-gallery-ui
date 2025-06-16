@@ -19,23 +19,40 @@
   <body>
     <div class="container">
       <header>
-        <div>Image Here</div>
+        <!-- <div>Image Here</div> -->
         <div>
           <picture>
-            <img src="" alt="couple looking at art" />
+            <source
+              srcset="
+                ./assets/mobile/image-hero.jpg    1x,
+                ./assets/mobile/image-hero@2x.jpg 2x
+              "
+            />
+            <img
+              src="./assets/mobile/image-hero.jpg"
+              alt="couple looking at art"
+            />
           </picture>
         </div>
-        <h1>Modern Art Gallery</h1>
 
-        <p>
-          The arts in the collection of the Modern Art Gallery all started from
-          a spark of inspiration. Will these pieces inspire you? Visit us and
-          find out
-        </p>
+        <div class="header__content">
+          <h1 class="big-shoulders-bold header__title">
+            Modern <br />
+            Art Gallery
+          </h1>
 
-        <div>
-          <p>Our location</p>
-          <button>icon</button>
+          <p class="outfit-regular header__description">
+            The arts in the collection of the Modern Art Gallery all started
+            from a spark of inspiration. Will these pieces inspire you? Visit us
+            and find out
+          </p>
+
+          <div class="header__cta-btn">
+            <p>Our location</p>
+            <div>
+                <img class="arrow" src="./assets/icon-arrow-right.svg" alt="right arrow">
+            </div>
+          </div>
         </div>
       </header>
 

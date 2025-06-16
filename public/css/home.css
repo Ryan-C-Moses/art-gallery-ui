@@ -1,1 +1,45 @@
+.header__title {
+  min-width: 343px;
+  color: var(--colors-grey-900);
+  font-size: var(--text-lg);
+  line-height: var(--line-height-90);
+  margin-bottom: 32px;
+}
 
+.header__content {
+  margin: 32px 16px;
+}
+
+.header__description {
+  min-width: 343px;
+  color: var(--colors-grey-700);
+  font-size: var(--text-xs);
+  margin-bottom: 32px;
+}
+
+.header__cta-btn {
+  width: 260px;
+  height: 72px;
+  display: flex;
+  color: var(--colors-white);
+  font-family: "Big Shoulders", sans-serif;
+  font-style: normal;
+  font-size: var(--btn-text-lg);
+  font-weight: 800;
+  line-height: var(--line-height-100);
+  letter-spacing: 3.636px;
+  text-transform: uppercase;
+  background-color: var(--colors-grey-900);
+}
+
+.header__cta-btn p {
+  width: 204px;
+  height: 72px;
+  padding: 24px 26px;
+}
+
+.header__cta-btn div {
+  padding: 24px;
+  width: 56px;
+  background-color: var(--colors-gold-500);
+}
