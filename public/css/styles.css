@@ -34,6 +34,14 @@
   line-height: 140%; /* 25.2px */
 }
 
+.container {
+    height: 100%;
+    width: 100%;
+    max-width: 1440px;
+    border: solid 2px red;
+    margin: 0 auto;
+}
+
 .btn-text {
   font-family: "Big Shoulders", sans-serif;
   font-style: normal;
