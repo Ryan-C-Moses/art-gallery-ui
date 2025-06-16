@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Outfit:wght@100..900&display=swap");
+
+:root {
+  /* COLORS */
+  --colors-grey-900: #151515;
+  --colors-grey-700: #444;
+  --colors-gold-500: #d5966c;
+  --colors-white: #fff;
+  /* PAGE FONT SIZES */
+  --text-xs: 1.125rem; /* 18px */
+  --text-sm: 1.375rem; /* 22px */
+  --text-sm-alt: 2.25rem; /* 36px */
+  --text-md: 3.125rem; /* 50px */
+  --text-md-alt: 3.4375rem; /* 55px */
+  --text-lg: 3.75rem; /* 60px */
+  --text-xl: 4.375rem; /* 70px */
+  --text-2xl: 6rem; /* 96px */
+  --btn-text-lg: 1.25rem; /* 20px */
+  --line-height-90: 90%;
+  --line-height-100: 100%;
+}
+
+.big-shoulders-bold {
+  font-family: "Big Shoulders", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.outfit-regular {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%; /* 25.2px */
+}
+
+.btn-text {
+  font-family: "Big Shoulders", sans-serif;
+  font-style: normal;
+  font-size: var(--btn-text-lg);
+  font-weight: 800;
+  line-height: 100%; /* 20px */
+  letter-spacing: 3.636px;
+  text-transform: uppercase;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
