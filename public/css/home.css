@@ -89,3 +89,21 @@ header {
   background-color: var(--colors-grey-900);
   padding: 48px 24px;
 }
+
+.home__footer {
+  padding: 48px 40px;
+  background-color: var(--colors-grey-900);
+}
+
+.footer__title-home {
+  color: var(--colors-white);
+  font-size: var(--text-sm);
+  line-height: var(--line-height-90);
+  margin-bottom: 40px;
+}
+
+.footer__description-home {
+  color: var(--colors-white);
+  font-size: var(--text-xs);
+  margin-bottom: 40px;
+}
