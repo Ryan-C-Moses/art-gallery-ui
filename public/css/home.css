@@ -1,3 +1,7 @@
+header {
+  margin-bottom: 100px;
+}
+
 .header__title {
   min-width: 343px;
   color: var(--colors-grey-900);
