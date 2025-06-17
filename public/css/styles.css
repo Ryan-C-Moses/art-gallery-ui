@@ -41,6 +41,12 @@
   margin: 0 auto;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 16px 100px 16px;
+}
+
 .icon {
   width: 20px;
   height: 20px;

@@ -47,3 +47,45 @@ header {
   width: 56px;
   background-color: var(--colors-gold-500);
 }
+
+.grid__title-black {
+  color: var(--colors-grey-900);
+  font-size: var(--text-md);
+  line-height: var(--line-height-90);
+  margin-bottom: 24px;
+}
+
+.grid__description-grey {
+  color: var(--colors-grey-700);
+  font-size: var(--text-xs);
+}
+
+.grid__title-white {
+  color: var(--colors-white);
+  font-size: var(--text-md);
+  line-height: var(--line-height-90);
+  margin-bottom: 24px;
+}
+
+.grid__description-white {
+  color: var(--colors-white);
+  font-size: var(--text-xs);
+}
+
+.grid__item:nth-child(1) {
+  margin-bottom: 24px;
+}
+
+.grid__item:nth-child(2) {
+  margin-bottom: 32px;
+}
+
+.grid__item:nth-child(3),
+.grid__item:nth-child(4) {
+  margin-bottom: 16px;
+}
+
+.grid__item:nth-child(5) {
+  background-color: var(--colors-grey-900);
+  padding: 48px 24px;
+}
