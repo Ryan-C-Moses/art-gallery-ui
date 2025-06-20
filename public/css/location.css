@@ -1,66 +1,77 @@
-/* Box sizing reset */
-*, *::before, *::after {
-  box-sizing: border-box;
+.header__cta-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 260px;
+  height: 72px;
+  display: flex;
+  color: var(--colors-white);
+  font-family: "Big Shoulders", sans-serif;
+  font-style: normal;
+  font-size: var(--btn-text-lg);
+  font-weight: 800;
+  line-height: var(--line-height-100);
+  letter-spacing: 3.636px;
+  text-transform: uppercase;
+  background-color: var(--colors-grey-900);
 }
 
-/* Remove default margin */
-body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
-  margin: 0;
+.header__cta-btn p {
+  width: 204px;
+  height: 72px;
+  padding: 24px;
 }
 
-/* Remove list styles on ul, ol elements with a list role */
-ul[role='list'], ol[role='list'] {
-  list-style: none;
+.header__cta-btn div {
+  padding: 24px;
+  width: 56px;
+  background-color: var(--colors-gold-500);
 }
 
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
+.container main section:nth-child(2) {
+  color: var(--colors-white);
+  background-color: var(--colors-grey-900);
+  padding: 80px 16px;
 }
 
-html, body {
-  height: 100%;
+.location__header {
+  font-size: var(--text-md-alt);
+  line-height: var(--line-height-90);
+  margin-bottom: 48px;
 }
 
-/* Improve text rendering */
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+.address__street {
+  color: var(--colors-gold-500);
+  font-size: var( --text-sm-alt);
+  line-height: var(--line-height-100);
+  margin-bottom: 20px;
 }
 
-/* Remove default padding */
-ul, ol {
-  padding: 0;
+.location__content p {
+  font-size: var(--text-xs);
 }
 
-/* Media defaults */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
+address {
+  margin-bottom: 20px;
 }
 
-/* Form elements */
-input, button, textarea, select {
-  font: inherit;
+footer {
+  background-color: var(--colors-gold-500);
+  padding: 48px 16px;
 }
 
-/* Remove built-in form styles (optional) */
-button, input[type="submit"] {
-  all: unset;
-  cursor: pointer;
+.footer__title-location {
+  font-size: var(--text-sm);
+  line-height: var(--line-height-90);
+  margin-bottom: 40px;
 }
 
-/* Remove animations/transitions for people who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+.footer__description-location {
+  font-size: var(--text-xs);
+  margin-bottom: 40px;
 }
+
+.icon-dark {
+  color: var(--colors-grey-900);
+}
+
