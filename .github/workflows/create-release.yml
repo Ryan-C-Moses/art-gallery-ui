@@ -4,6 +4,13 @@ on:
     branches: ["release"]
     types:
       - closed
+permissions:
+  contents: write
+  pull-requests: write
+env:
+  USERNAME: ${{ secrets.BOT_USERNAME }}
+  EMAIL: ${{ secrets.BOT_EMAIL }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   merge:
     if: github.event.pull_request.merged == true
@@ -16,13 +23,9 @@ jobs:
           fetch-depth: 0
 
       - name: Configure Git
-        env:
-          USERNAME: ${{ secrets.BOT_USERNAME }}
-          EMAIL: ${{ secrets.BOT_EMAIL }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "$USERNAME"
-          git config user.email "$EMAIL"\
+          git config user.email "$EMAIL"
 
       - name: Merge Into Develop
         run: |
