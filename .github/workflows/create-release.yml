@@ -1,0 +1,50 @@
+name: Release Git Flow
+on:
+  pull_request:
+    branches: ["release"]
+    types:
+      - closed
+permissions:
+  contents: write
+  pull-requests: write
+env:
+  USERNAME: ${{ secrets.BOT_USERNAME }}
+  EMAIL: ${{ secrets.BOT_EMAIL }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  merge:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          ref: release
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$USERNAME"
+          git config user.email "$EMAIL"
+
+      - name: Merge Into Develop
+        run: |
+          # Check if a PR already exists to avoid duplicates
+          gh pr list --head release --base develop --state open --json number | grep -q 'number' \
+          && echo "🔁 PR already exists." \
+          || gh pr create \
+              --title "Automated PR: Release → Development" \
+              --body "This pull request was created automatically by GitHub Actions." \
+              --base develop \
+              --head release
+
+      - name: Merge Into Main
+        run: |
+          # Check if a PR already exists to avoid duplicates
+          gh pr list --head release --base main --state open --json number | grep -q 'number' \
+          && echo "🔁 PR already exists." \
+          || gh pr create \
+              --title "Automated PR: Release → Main" \
+              --body "This pull request was created automatically by GitHub Actions. Closing this PR will trigger a deployment to Prod" \
+              --base main \
+              --head release
