@@ -4,7 +4,7 @@
 
 ## Welcome! 👋
 
-Modifications coming soon
+Modifications coming soon - For Deployments and Project description In-Depth
 
 Thanks for purchasing this premium Frontend Mentor coding challenge.
 

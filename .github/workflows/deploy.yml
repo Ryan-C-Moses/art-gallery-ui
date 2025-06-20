@@ -39,8 +39,8 @@ jobs:
           USERNAME: ${{ secrets.BOT_USERNAME }}
           EMAIL: ${{ secrets.BOT_EMAIL }}
         run: |
-          git config user.name "$USERNAME"
-          git config user.email "$EMAIL"
+          git config --global user.name "$USERNAME"
+          git config --global user.email "$EMAIL"
       - name: Commit and push to production branch
         run: |
           # Clone the production branch
