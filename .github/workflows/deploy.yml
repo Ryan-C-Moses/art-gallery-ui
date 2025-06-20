@@ -1,8 +1,10 @@
-name: Merge and Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
-  push:
+  pull_request:
     branches: ["main"]
+    types:
+      - closed # runs when PR is closed (either merged or just closed)
 
 permissions:
   contents: write # Required to push to 'production'
@@ -14,16 +16,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  merge:
+  build:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
-
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Project
+        run: npm build
       - name: Configure Git
         env:
           USERNAME: ${{ secrets.BOT_USERNAME }}
@@ -31,25 +41,20 @@ jobs:
         run: |
           git config user.name "$USERNAME"
           git config user.email "$EMAIL"
-
-      - name: Merge main into production
+      - name: Commit and push to production branch
         run: |
-          git fetch origin production
-          git checkout production
-          git merge origin/main --no-edit
+          # Clone the production branch
+          git clone --branch production https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} production-branch
+
+          # Copy new dist build into it
+          rm -rf production-branch/*
+          cp -r dist/* production-branch/
+
+           # Commit and push
+          cd production-branch
+          git add .
+          git commit -m "🚀 Deploy latest build from main" || echo "No changes to commit"
           git push origin production
-
-  build:
-    needs: merge
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Production
-        uses: actions/checkout@v4
-        with:
-          ref: production
-          fetch-depth: 0
-      - name: Build Deployment Files
 
   deploy:
     needs: build
@@ -63,8 +68,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: production
-
-    
+          fetch-depth: 0
 
       - name: Add CNAME
         run: echo 'artgalleryapp.ryancmoses.dev' > ./CNAME

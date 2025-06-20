@@ -4,8 +4,8 @@
   "description": "![Design preview for the Art gallery website coding challenge](./preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --config prod.config.js --mode development",
-    "build": "webpack --config prod.config.js --mode production",
+    "dev": "webpack serve --config webpack.dev.js --mode development",
+    "build": "webpack --config webpack.prod.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
