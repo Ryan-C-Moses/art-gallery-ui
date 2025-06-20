@@ -1,5 +1,4 @@
 name: Deployment Setup
-gi s
 on:
   pull_request:
     branches: ["main"]
