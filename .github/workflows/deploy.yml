@@ -1,0 +1,82 @@
+name: Merge and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write # Required to push to 'production'
+  pages: write # Required for GitHub Pages deployment
+  id-token: write # Required for OIDC (used by deploy-pages action)
+
+concurrency:
+  group: "github-pages"
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Configure Git
+        env:
+          USERNAME: ${{ secrets.BOT_USERNAME }}
+          EMAIL: ${{ secrets.BOT_EMAIL }}
+        run: |
+          git config user.name "$USERNAME"
+          git config user.email "$EMAIL"
+
+      - name: Merge main into production
+        run: |
+          git fetch origin production
+          git checkout production
+          git merge origin/main --no-edit
+          git push origin production
+
+  build:
+    needs: merge
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Production
+        uses: actions/checkout@v4
+        with:
+          ref: production
+          fetch-depth: 0
+      - name: Build Deployment Files
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout production
+        uses: actions/checkout@v4
+        with:
+          ref: production
+
+    
+
+      - name: Add CNAME
+        run: echo 'artgalleryapp.ryancmoses.dev' > ./CNAME
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "." # change to ./dist or ./build if using a build system
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
