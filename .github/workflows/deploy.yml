@@ -1,0 +1,86 @@
+name: Deploy to GitHub Pages
+
+on:
+  pull_request:
+    branches: ["main"]
+    types:
+      - closed # runs when PR is closed (either merged or just closed)
+
+permissions:
+  contents: write # Required to push to 'production'
+  pages: write # Required for GitHub Pages deployment
+  id-token: write # Required for OIDC (used by deploy-pages action)
+
+concurrency:
+  group: "github-pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Project
+        run: npm build
+      - name: Configure Git
+        env:
+          USERNAME: ${{ secrets.BOT_USERNAME }}
+          EMAIL: ${{ secrets.BOT_EMAIL }}
+        run: |
+          git config user.name "$USERNAME"
+          git config user.email "$EMAIL"
+      - name: Commit and push to production branch
+        run: |
+          # Clone the production branch
+          git clone --branch production https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} production-branch
+
+          # Copy new dist build into it
+          rm -rf production-branch/*
+          cp -r dist/* production-branch/
+
+           # Commit and push
+          cd production-branch
+          git add .
+          git commit -m "🚀 Deploy latest build from main" || echo "No changes to commit"
+          git push origin production
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout production
+        uses: actions/checkout@v4
+        with:
+          ref: production
+          fetch-depth: 0
+
+      - name: Add CNAME
+        run: echo 'artgalleryapp.ryancmoses.dev' > ./CNAME
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "." # change to ./dist or ./build if using a build system
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
