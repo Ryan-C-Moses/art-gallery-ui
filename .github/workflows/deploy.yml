@@ -1,10 +1,15 @@
 name: Deploy To Github Pages
 on:
-  push:
+  pull_request:
     branches: ["production"]
+    types: [closed]
+permissions:
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     environment:
       name: github-pages
