@@ -9,6 +9,7 @@ permissions:
   contents: write # Required to push to 'production'
   pages: write # Required for GitHub Pages deployment
   id-token: write # Required for OIDC (used by deploy-pages action)
+  pull-requests: write # To create pull requests
 
 concurrency:
   group: "github-pages"
