@@ -2,7 +2,8 @@ name: Deploy To Github Pages
 on:
   pull_request:
     branches: ["production"]
-    types: [closed]
+    types:
+      - closed
 permissions:
   contents: read # ✅ Needed for actions/checkout
   pages: write
