@@ -87,6 +87,24 @@
   .grid__item:nth-child(4) {
     padding: 91px 28.5px;
   }
+
+  .home__footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 48px 40px 60px;
+  }
+
+  .footer__title-home {
+    width: 110px;
+    max-width: 160px;
+    margin-bottom: 0px;
+}
+
+.footer__description-home {
+    width: 276px;
+    max-width: 430px;
+    margin-bottom: 0px;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
