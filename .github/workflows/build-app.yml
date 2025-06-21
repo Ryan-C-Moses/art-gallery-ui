@@ -48,9 +48,10 @@ jobs:
           cd production-clone
           git checkout -b build-to-production
 
-          # Copy new dist build into it
+          # Copy new dist build adn workflows into it
           rm -rf ./*
           cp -r ../dist/* ./
+          cp -r ../.github ./ 
 
 
            # Commit and push
