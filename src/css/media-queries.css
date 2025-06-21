@@ -1,18 +1,106 @@
-/* This file will host my media queries */
-/* We will start with tablet and work my way up to desktop */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  header {
+    position: relative;
+  }
+
+  .header__content {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    width: 44%;
+    max-width: 500px;
+    margin: 0;
+  }
+
+  .image-container {
+    width: auto;
+  }
+
+  .image-container img {
+    width: auto;
+  }
+
+  .map .image-container {
+    width: 100%;
+  }
+
+  .map .image-container img {
+    width: 100%;
+  }
+
+  header .image-container img {
+    width: 56%;
+    max-width: 539px;
+  }
+
+  .grid-container {
+    grid-template-columns: auto auto;
+    grid-template-rows: 400px 313px 396px;
+    column-gap: 11px;
+    row-gap: 12px;
+    margin: 120px 39.5px 120px 39.5px;
+  }
+
+  .grid__description-view {
+    width: 223px;
+    max-width: 350px;
+    padding-top: 58px;
+    margin-right: 68px;
+  }
+
+  .item1 {
+    display: flex;
+    flex-direction: row-reverse;
+    grid-area: 1 / 1 / 1 / 3;
+  }
+
+  .item2 {
+    grid-area: 2 / 1 / 4 / 2;
+  }
+
+  .grid__item:nth-child(1) div:nth-child(1) {
+    margin-bottom: 0px;
+  }
+
+  .grid__item:nth-child(1) div:nth-child(2) {
+    margin-bottom: 0px;
+  }
+
+  .grid__item:nth-child(2) {
+    margin-bottom: 0px;
+  }
+
+  .grid__item:nth-child(3),
+  .grid__item:nth-child(4) {
+    margin-bottom: 0px;
+  }
+
+  .grid__item:nth-child(4) {
+    padding: 91px 28.5px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .header__content {
+    max-width: 650px;
+  }
+
+  header .image-container img {
+    width: 56%;
+    max-width: 639px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
