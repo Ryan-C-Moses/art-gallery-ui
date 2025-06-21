@@ -1,0 +1,71 @@
+name: Deployment Setup
+on:
+  pull_request:
+    branches: ["main"]
+    types:
+      - closed # runs when PR is closed (either merged or just closed)
+
+permissions:
+  contents: write # Required to push to 'production'
+  pages: write # Required for GitHub Pages deployment
+  id-token: write # Required for OIDC (used by deploy-pages action)
+  pull-requests: write # To create pull requests
+
+concurrency:
+  group: "github-pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      USERNAME: ${{ secrets.BOT_USERNAME }}
+      EMAIL: ${{ secrets.BOT_EMAIL }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Project
+        run: npm run build
+      - name: Configure Git
+        run: |
+          git config --global user.name "$USERNAME"
+          git config --global user.email "$EMAIL"
+      - name: Commit and push to production branch
+        run: |
+          # Clone the production branch
+          git clone --branch production https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }} production-clone
+          cd production-clone
+          git checkout -b build-to-production
+
+          # Copy new dist build adn workflows into it
+          rm -rf ./*
+          cp -r ../dist/* ./
+          cp -r ../.github ./ 
+
+
+           # Commit and push
+          git add .
+          git commit -m "🚀 Deploy latest build from main" || echo "No changes to commit"
+          git push --force origin build-to-production
+
+      - name: Create PR for Production
+        run: |
+          # Check if a PR already exists to avoid duplicates
+           gh pr list --head build-to-production --base production --state open --json number | grep -q 'number' \
+           && echo "🔁 PR already exists." \
+           || gh pr create \
+               --title "Automated PR: Build → Production" \
+               --body "This pull request was created automatically by GitHub Actions. Closing this PR will deploy to Prod" \
+               --base production \
+               --head build-to-production

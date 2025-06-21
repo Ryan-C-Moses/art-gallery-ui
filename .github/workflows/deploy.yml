@@ -1,0 +1,40 @@
+name: Deploy To Github Pages
+on:
+  pull_request:
+    branches: ["production"]
+    types:
+      - closed
+permissions:
+  contents: read # ✅ Needed for actions/checkout
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout production
+        uses: actions/checkout@v4
+        with:
+          ref: production
+          fetch-depth: 0
+
+      - name: Add CNAME
+        run: echo 'artgalleryapp.ryancmoses.dev' > ./CNAME
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "." # change to ./dist or ./build if using a build system
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
