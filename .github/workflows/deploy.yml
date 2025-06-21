@@ -4,6 +4,7 @@ on:
     branches: ["production"]
     types: [closed]
 permissions:
+  contents: read # ✅ Needed for actions/checkout
   pages: write
   id-token: write
 
