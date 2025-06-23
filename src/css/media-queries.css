@@ -256,14 +256,12 @@
     font-size: var(--text-sm-alt);
     width: fit-content;
     max-width: 180px;
-    border: solid 1px red;
   }
 
   .footer__description-home {
     font-size: var(--text-sm);
     width: 40%;
     max-width: 518px;
-    border: solid 1px red;
   }
 }
 
