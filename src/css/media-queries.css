@@ -230,6 +230,7 @@
       var(--colors-white) 64%,
       var(--colors-grey-900) 36%
     );
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
