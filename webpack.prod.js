@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
     clean: true, // cleans /dist before build
-    assetModuleFilename: "images/[name][ext]",
+    assetModuleFilename: "images/[path]/[name][ext]",
   },
   module: {
     rules: [
