@@ -40,7 +40,7 @@ ul, ol {
 /* Media defaults */
 img, picture, video, canvas, svg {
   display: block;
-  height: auto;
+  height: 100%;
 }
 
 /* Form elements */

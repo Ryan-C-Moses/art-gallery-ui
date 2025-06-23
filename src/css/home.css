@@ -2,6 +2,14 @@ header {
   margin-bottom: 100px;
 }
 
+.black__rect {
+  display: none;
+}
+
+.header__title-desktop {
+  display: none;
+}
+
 .header__title {
   min-width: 343px;
   color: var(--colors-grey-900);
@@ -70,6 +78,10 @@ header {
 .grid__description-white {
   color: var(--colors-white);
   font-size: var(--text-xs);
+}
+
+.item1 .image-container {
+  height: auto;
 }
 
 .grid__item:nth-child(1) div:nth-child(1) {
