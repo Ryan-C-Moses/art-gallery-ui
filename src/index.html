@@ -20,16 +20,39 @@
   <body>
     <div class="container">
       <header>
-        <div>
+        <h1 class="big-shoulders-bold header__title-desktop gradient-text">
+          Modern <br />
+          Art Gallery
+        </h1>
+
+        <div class="black__rect"></div>
+
+        <div class="image-container">
           <picture>
+            <source
+              srcset="
+                ./assets/images/desktop/image-hero.jpg    1x,
+                ./assets/images/desktop/image-hero@2x.jpg 2x
+              "
+              media="(min-width: 1200px)"
+            />
+            <source
+              srcset="
+                ./assets/images/tablet/image-hero.jpg    1x,
+                ./assets/images/tablet/image-hero@2x.jpg 2x
+              "
+              media="(min-width: 768px)"
+            />
             <source
               srcset="
                 ./assets/images/mobile/image-hero.jpg    1x,
                 ./assets/images/mobile/image-hero@2x.jpg 2x
               "
+              media="(min-width: 375px)"
             />
+
             <img
-              src="./assets/images/mobile/image-hero.jpg"
+              src="./assets/images/mobile/image-hero@2x.jpg"
               alt="couple looking at art"
             />
           </picture>
@@ -65,57 +88,120 @@
       <main>
         <section>
           <div class="grid-container">
-            <div class="grid__item">
-              <picture>
-                <source
-                  srcset="
-                    ./assets/images/mobile/image-grid-1.jpg    1x,
-                    ./assets/images/mobile/image-grid-1@2x.jpg 2x
-                  "
-                />
-                <img src="./assets/images/mobile/image-grid-1.jpg" alt="art gallery" />
-              </picture>
-            </div>
-            <div class="grid__item">
-              <h2 class="big-shoulders-bold grid__title-black">
-                Your day <br />
-                at the gallery
-              </h2>
+            <div class="grid__item item1">
+              <div class="image-container">
+                <picture>
+                  <source
+                    srcset="
+                      ./assets/images/desktop/image-grid-1.jpg    1x,
+                      ./assets/images/desktop/image-grid-1@2x.jpg 2x
+                    "
+                    media="(min-width: 1200px)"
+                  />
+                  <source
+                    srcset="
+                      ./assets/images/tablet/image-grid-1.jpg    1x,
+                      ./assets/images/tablet/image-grid-1@2x.jpg 2x
+                    "
+                    media="(min-width: 768px)"
+                  />
+                  <source
+                    srcset="
+                      ./assets/images/mobile/image-grid-1.jpg    1x,
+                      ./assets/images/mobile/image-grid-1@2x.jpg 2x
+                    "
+                    media="(min-width: 375px)"
+                  />
 
-              <p class="outfit-regular grid__description-grey">
-                Wander through our distinct collections and find new insights
-                about our artists. Dive into the details of their creative
-                process.
-              </p>
-            </div>
+                  <img
+                    src="./assets/images/mobile/image-grid-1@2x.jpg"
+                    alt="art gallery"
+                  />
+                </picture>
+              </div>
 
-            <div class="grid__item">
-              <picture>
-                <source
-                  srcset="
-                    ./assets/images/mobile/image-grid-2.jpg    1x,
-                    ./assets/images/mobile/image-grid-2@2x.jpg 2x
-                  "
-                />
-                <img
-                  src="./assets/images/mobile/image-grid-2.jpg"
-                  alt="bench in art gallery"
-                />
-              </picture>
-            </div>
-            <div class="grid__item">
-              <picture>
-                <source
-                  srcset="
-                    ./assets/images/mobile/image-grid-3.jpg    1x,
-                    ./assets/images/mobile/image-grid-3@2x.jpg 2x
-                  "
-                />
-                <img src="./assets/images/mobile/image-grid-3.jpg" alt="" />
-              </picture>
+              <div>
+                <div class="grid__description-view">
+                  <h2 class="big-shoulders-bold grid__title-black">
+                    Your day 
+                    at the gallery
+                  </h2>
+
+                  <p class="outfit-regular grid__description-grey">
+                    Wander through our distinct collections and find new
+                    insights about our artists. Dive into the details of their
+                    creative process.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div class="grid__item">
+            <div class="grid__item item2">
+              <div class="image-container">
+                <picture>
+                  <source
+                    srcset="
+                      ./assets/images/desktop/image-grid-2.jpg    1x,
+                      ./assets/images/desktop/image-grid-2@2x.jpg 2x
+                    "
+                    media="(min-width: 1200px)"
+                  />
+                  <source
+                    srcset="
+                      ./assets/images/tablet/image-grid-2.jpg    1x,
+                      ./assets/images/tablet/image-grid-2@2x.jpg 2x
+                    "
+                    media="(min-width: 768px)"
+                  />
+                  <source
+                    srcset="
+                      ./assets/images/mobile/image-grid-2.jpg    1x,
+                      ./assets/images/mobile/image-grid-2@2x.jpg 2x
+                    "
+                    media="(min-width: 375px)"
+                  />
+
+                  <img
+                    src="./assets/images/mobile/image-grid-2@2x.jpg"
+                    alt="bench in art gallery"
+                  />
+                </picture>
+              </div>
+            </div>
+            <div class="grid__item item3">
+              <div class="image-container">
+                <picture>
+                  <source
+                    srcset="
+                      ./assets/images/desktop/image-grid-3.jpg    1x,
+                      ./assets/images/desktop/image-grid-3@2x.jpg 2x
+                    "
+                    media="(min-width: 1000px)"
+                  />
+                  <source
+                    srcset="
+                      ./assets/images/tablet/image-grid-3.jpg    1x,
+                      ./assets/images/tablet/image-grid-3@2x.jpg 2x
+                    "
+                    media="(min-width: 768px)"
+                  />
+                  <source
+                    srcset="
+                      ./assets/images/mobile/image-grid-3.jpg    1x,
+                      ./assets/images/mobile/image-grid-3@2x.jpg 2x
+                    "
+                    media="(min-width: 375px)"
+                  />
+
+                  <img
+                    src="./assets/images/mobile/image-grid-3@2x.jpg"
+                    alt="gallery hall"
+                  />
+                </picture>
+              </div>
+            </div>
+
+            <div class="grid__item item4">
               <h2 class="big-shoulders-bold grid__title-white">
                 Come &amp; be <br />
                 inspired
@@ -146,7 +232,10 @@
             <img src="./assets/images/icon-facebook.svg" alt="icon-facebook" />
           </div>
           <div class="icon">
-            <img src="./assets/images/icon-instagram.svg" alt="icon-instagram" />
+            <img
+              src="./assets/images/icon-instagram.svg"
+              alt="icon-instagram"
+            />
           </div>
           <div class="icon">
             <img src="./assets/images/icon-twitter.svg" alt="icon-twitter" />

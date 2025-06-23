@@ -1,18 +1,337 @@
-/* This file will host my media queries */
-/* We will start with tablet and work my way up to desktop */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
-/* new comments will be added */
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  header {
+    position: relative;
+  }
+
+  .header__content {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    width: 44%;
+    max-width: 500px;
+    margin: 0;
+  }
+
+  .image-container {
+    width: auto;
+  }
+
+  .image-container img {
+    width: auto;
+  }
+
+  .map .image-container {
+    width: 100%;
+  }
+
+  .map .image-container img {
+    width: 100%;
+  }
+
+  header .image-container img {
+    width: 56%;
+    max-width: 539px;
+  }
+
+  .grid-container {
+    width: 689px;
+    grid-template-columns: auto auto;
+    grid-template-rows: 400px 313px 396px;
+    column-gap: 11px;
+    row-gap: 12px;
+    margin: 120px auto;
+  }
+
+  .grid__description-view {
+    width: 223px;
+    max-width: 350px;
+    padding-top: 58px;
+    margin-right: 68px;
+  }
+
+  .item1 {
+    display: flex;
+    flex-direction: row-reverse;
+    grid-area: 1 / 1 / 1 / 3;
+  }
+
+  .item2 {
+    grid-area: 2 / 1 / 4 / 2;
+  }
+
+  .grid__item:nth-child(1) div:nth-child(1) {
+    margin-bottom: 0px;
+  }
+
+  .grid__item:nth-child(1) div:nth-child(2) {
+    margin-bottom: 0px;
+  }
+
+  .grid__item:nth-child(2) {
+    margin-bottom: 0px;
+  }
+
+  .grid__item:nth-child(3),
+  .grid__item:nth-child(4) {
+    margin-bottom: 0px;
+  }
+
+  .grid__item:nth-child(4) {
+    padding: 91px 28.5px;
+  }
+
+  .home__footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 48px 40px 60px;
+  }
+
+  .footer__title-home {
+    width: 14%;
+    max-width: 160px;
+    margin-bottom: 0px;
+  }
+
+  .footer__description-home {
+    width: 276px;
+    max-width: 380px;
+    margin-bottom: 0px;
+  }
+
+  #location__second-section {
+    padding: 80px 40px;
+  }
+
+  .location__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .location__header {
+    width: 233px;
+  }
+
+  .location__content div {
+    width: 398px;
+  }
+
+  #location__footer {
+    display: flex;
+    padding: 48px 40px 60px;
+  }
+
+  .footer__title-location {
+    width: 110px;
+    margin-right: 64px;
+  }
+  .footer__description-location {
+    width: 276px;
+    margin-right: 138px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .header__content {
+    max-width: 650px;
+  }
+
+  header .image-container {
+    width: 100%;
+  }
+
+  header .image-container picture {
+    height: 100%;
+  }
+
+  header .image-container img {
+    width: 56%;
+    max-width: 540px;
+    height: 100%;
+  }
+
+  .grid-container {
+    width: 89%;
+    column-gap: 20px;
+    row-gap: 22px;
+  }
+
+  .grid__description-view {
+    width: 275px;
+  }
+
+  .item1 {
+    justify-content: space-between;
+  }
+
+  .item1 .image-container {
+    margin: 0px;
+  }
+
+  .item2 img {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .item3 img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  #location__second-section {
+    padding: 130px 165px;
+  }
+
+  #location__footer {
+    justify-content: space-around;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  header {
+    display: flex;
+    height: 900px;
+  }
+
+  header .image-container {
+    margin: 0px;
+    width: 540px;
+  }
+
+  header .image-container img {
+    margin: 0px;
+    width: 100%;
+  }
+
+  .black__rect {
+    display: block;
+    width: 450px;
+    background-color: var(--colors-grey-900);
+  }
+
+  .header__title {
+    display: none;
+  }
+
+  .header__title-desktop {
+    display: block;
+    position: absolute;
+    color: white;
+    top: 189px;
+    left: 165px;
+    font-size: var(--text-2xl);
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      to right,
+      var(--colors-white) 64%,
+      var(--colors-grey-900) 36%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .header__content {
+    position: absolute;
+    top: 320px;
+    right: clamp(40px, 2%, 42px);
+    width: 24%;
+    max-width: 350px;
+    margin: 0;
+  }
+
+  .header__description {
+    font-size: var(--text-sm);
+    margin-bottom: 64px;
+  }
+
+  .item3 img {
+    height: 100%;
+  }
+
+  .footer__title-home {
+    font-size: var(--text-sm-alt);
+    width: fit-content;
+    max-width: 180px;
+    border: solid 1px red;
+  }
+
+  .footer__description-home {
+    font-size: var(--text-sm);
+    width: 40%;
+    max-width: 518px;
+    border: solid 1px red;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .header__content {
+    right: 11%;
+  }
+
+  .grid-container {
+    width: 1110px;
+    column-gap: 30px;
+    row-gap: 32px;
+    margin: 0 auto 180px;
+  }
+
+  .grid__description-view {
+    width: 350px;
+    padding-top: 58px;
+    margin-right: 125px;
+  }
+
+  .grid__description-grey {
+    font-size: var(--text-sm);
+  }
+
+  .grid__title-black {
+    font-size: var(--text-lg);
+  }
+
+  .home__footer {
+    padding-top: 80px;
+    padding-bottom: 89px;
+    padding-right: 165px;
+    padding-left: 165px;
+  }
+
+  .footer__description-home {
+    width: 49%;
+    max-width: 530px;
+  }
+
+  .map .image-container {
+    max-width: 100%;
+  }
+
+  .location__header {
+    font-size: var(--text-xl);
+  }
+
+  .location__content div {
+    width: 540px;
+  }
+
+  .location__content p {
+    font-size: var(--text-sm);
+  }
+
+  #location__footer {
+    padding: 80px 165px;
+  }
+
+  .footer__title-location {
+    font-size: var(--text-sm-alt);
+    width: 173px;
+    margin-right: 140px;
+  }
+
+  .footer__description-location {
+    width: 430px;
+  }
+}
