@@ -28,7 +28,7 @@
   background-color: var(--colors-gold-500);
 }
 
-.container main section:nth-child(2) {
+#location__second-section {
   color: var(--colors-white);
   background-color: var(--colors-grey-900);
   padding: 80px 16px;
@@ -55,7 +55,7 @@ address {
   margin-bottom: 20px;
 }
 
-footer {
+#location__footer {
   background-color: var(--colors-gold-500);
   padding: 48px 16px;
 }
